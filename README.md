@@ -1,5 +1,8 @@
 # Islands Architecture MPA with React + Vite
 
+Note: there is another Vite plugin for MPA development: git@github.com:IndexXuan/vite-plugin-mpa.git
+Check react version of MPA: https://github.com/IndexXuan/vite-plugin-mpa/tree/main/examples/react-mpa-app
+
 A modern Multi-Page Application (MPA) implementation using Islands Architecture pattern, designed for migrating from Java Server Pages (JSP) to React with TypeScript.
 
 ## Architecture Overview
@@ -31,7 +34,7 @@ This project demonstrates the **Islands Architecture** pattern where:
 
 ## Project Structure
 
-```
+```text
 ├── src/
 │   ├── pages/              # Each page is a separate entry point
 │   │   ├── home/
@@ -79,6 +82,7 @@ yarn dev
 The dev server will open at `http://localhost:5173/src/pages/home/index.html`
 
 Navigate between pages:
+
 - Home: `/src/pages/home/index.html`
 - About: `/src/pages/about/index.html`
 
@@ -91,6 +95,7 @@ yarn build
 ```
 
 This will:
+
 1. Run TypeScript type checking
 2. Build optimized production bundles
 3. Output to `dist/` directory
@@ -125,6 +130,7 @@ export default defineConfig({
 ### 2. Islands Pattern
 
 Each page contains:
+
 - **Static HTML**: Server-rendered or static content
 - **Island Containers**: `<div id="island-name"></div>` placeholders
 - **Entry Script**: Hydrates only the interactive islands
@@ -148,27 +154,30 @@ Components following the `.island.tsx` naming convention are interactive React c
 ## Adding a New Page
 
 1. Create a new directory in `src/pages/`:
+
 ```bash
 mkdir -p src/pages/products
 ```
 
 2. Create `index.html`:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Products</title>
-</head>
-<body>
-  <h1>Products Page</h1>
-  <div id="product-list-island"></div>
-  <script type="module" src="./main.tsx"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Products</title>
+  </head>
+  <body>
+    <h1>Products Page</h1>
+    <div id="product-list-island"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
 </html>
 ```
 
 3. Create `main.tsx`:
+
 ```typescript
 import { createRoot } from 'react-dom/client';
 import ProductList from '../../islands/ProductList.island';
@@ -180,6 +189,7 @@ if (element) {
 ```
 
 4. Add entry point to `vite.config.ts`:
+
 ```typescript
 input: {
   home: resolve(__dirname, 'src/pages/home/index.html'),
@@ -231,16 +241,19 @@ if (element) {
 ## Migration Strategy from JSP
 
 ### Phase 1: Parallel Implementation
+
 1. Keep existing JSP pages running
 2. Create React island versions of interactive components
 3. Test in staging environment
 
 ### Phase 2: Gradual Rollout
+
 1. Migrate one page at a time
 2. Replace JSP dynamic sections with React islands
 3. Keep static content as HTML (can be generated server-side)
 
 ### Phase 3: Full Migration
+
 1. All pages using Islands Architecture
 2. Server still generates HTML (SSR or static)
 3. React only for interactive components
@@ -261,6 +274,7 @@ Compare this to a typical SPA where the entire application JavaScript must load 
 ### When to Use Islands
 
 ✅ **Good use cases:**
+
 - Interactive forms
 - Data tables with sorting/filtering
 - User dashboards
@@ -268,6 +282,7 @@ Compare this to a typical SPA where the entire application JavaScript must load 
 - Interactive charts
 
 ❌ **Avoid for:**
+
 - Simple static content
 - Basic navigation
 - Purely presentational components
@@ -288,16 +303,19 @@ Compare this to a typical SPA where the entire application JavaScript must load 
 ## Alternatives Considered
 
 ### Why Not SPA?
+
 - Full hydration overhead
 - Larger initial bundles
 - Complex routing needed
 
 ### Why Not yarn workspaces?
+
 - Overkill for this use case
 - Adds unnecessary complexity
 - Better for monorepos with shared packages
 
 ### Why Not vite-plugin-mpa?
+
 - Native Vite MPA support is sufficient
 - Less dependencies to manage
 - More explicit configuration
