@@ -21,9 +21,11 @@ export default function TodoList() {
   };
 
   const toggleTodo = (id: number) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
+    setTodos(
+      todos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
   const deleteTodo = (id: number) => {
@@ -31,27 +33,29 @@ export default function TodoList() {
   };
 
   return (
-    <div style={{
-      padding: '20px',
-      border: '2px solid #ff9800',
-      borderRadius: '8px',
-      margin: '20px 0',
-      maxWidth: '500px'
-    }}>
+    <div
+      style={{
+        padding: '20px',
+        border: '2px solid #ff9800',
+        borderRadius: '8px',
+        margin: '20px 0',
+        maxWidth: '500px',
+      }}
+    >
       <h2>Todo List Island</h2>
       <div style={{ marginBottom: '15px', display: 'flex' }}>
         <input
           type="text"
           value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && addTodo()}
+          onChange={e => setNewTodo(e.target.value)}
+          onKeyPress={e => e.key === 'Enter' && addTodo()}
           placeholder="Add a new todo..."
           style={{
             flex: 1,
             padding: '8px',
             borderRadius: '4px',
             border: '1px solid #ccc',
-            marginRight: '10px'
+            marginRight: '10px',
           }}
         />
         <button
@@ -62,7 +66,7 @@ export default function TodoList() {
             color: 'white',
             border: 'none',
             borderRadius: '4px',
-            cursor: 'pointer'
+            cursor: 'pointer',
           }}
         >
           Add
@@ -78,7 +82,7 @@ export default function TodoList() {
               padding: '10px',
               marginBottom: '5px',
               backgroundColor: '#f5f5f5',
-              borderRadius: '4px'
+              borderRadius: '4px',
             }}
           >
             <input
@@ -87,11 +91,13 @@ export default function TodoList() {
               onChange={() => toggleTodo(todo.id)}
               style={{ marginRight: '10px', cursor: 'pointer' }}
             />
-            <span style={{
-              flex: 1,
-              textDecoration: todo.completed ? 'line-through' : 'none',
-              color: todo.completed ? '#999' : 'inherit'
-            }}>
+            <span
+              style={{
+                flex: 1,
+                textDecoration: todo.completed ? 'line-through' : 'none',
+                color: todo.completed ? '#999' : 'inherit',
+              }}
+            >
               {todo.text}
             </span>
             <button
@@ -102,7 +108,7 @@ export default function TodoList() {
                 color: 'white',
                 border: 'none',
                 borderRadius: '4px',
-                cursor: 'pointer'
+                cursor: 'pointer',
               }}
             >
               Delete

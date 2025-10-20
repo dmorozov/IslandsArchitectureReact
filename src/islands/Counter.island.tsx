@@ -4,13 +4,15 @@ export default function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    <div style={{
-      padding: '20px',
-      border: '2px solid #646cff',
-      borderRadius: '8px',
-      textAlign: 'center',
-      margin: '20px 0'
-    }}>
+    <div
+      style={{
+        padding: '20px',
+        border: '2px solid #646cff',
+        borderRadius: '8px',
+        textAlign: 'center',
+        margin: '20px 0',
+      }}
+    >
       <h2>Interactive Counter Island</h2>
       <p style={{ fontSize: '24px', margin: '10px 0' }}>Count: {count}</p>
       <button
@@ -23,7 +25,7 @@ export default function Counter() {
           border: 'none',
           borderRadius: '4px',
           cursor: 'pointer',
-          marginRight: '10px'
+          marginRight: '10px',
         }}
       >
         Increment
@@ -37,7 +39,7 @@ export default function Counter() {
           color: 'white',
           border: 'none',
           borderRadius: '4px',
-          cursor: 'pointer'
+          cursor: 'pointer',
         }}
       >
         Decrement

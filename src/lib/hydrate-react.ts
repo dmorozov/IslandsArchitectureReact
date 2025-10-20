@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { hydrateRoot } from 'react-dom/client';
 import { createElement } from 'react';
 
