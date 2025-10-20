@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Islands MPA Demo</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    header {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .static-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .architecture-diagram {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid #f5576c;
+      margin: 20px 0;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 About - Islands Architecture</h1>
+    <nav>
+      <a href="/src/pages/home/index.html">Home</a>
+      <a href="/src/pages/about/index.html">About</a>
+    </nav>
+    <p>Learn about the Islands Architecture pattern</p>
+  </header>
+
+  <div class="static-content">
+    <h2>What is Islands Architecture?</h2>
+    <p>Islands architecture is a modern web development pattern that combines the best of static site generation with dynamic, interactive components.</p>
+
+    <div class="architecture-diagram">
+      <h3>Key Concepts:</h3>
+      <ul>
+        <li><strong>Server-Rendered HTML:</strong> Most of the page is static or server-rendered</li>
+        <li><strong>Selective Hydration:</strong> Only interactive components ("islands") load JavaScript</li>
+        <li><strong>Independent Islands:</strong> Each island hydrates independently and asynchronously</li>
+        <li><strong>Performance First:</strong> Dramatically reduced JavaScript bundle sizes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="static-content">
+    <h2>Benefits for JSP Migration</h2>
+    <ul>
+      <li>🎯 <strong>Progressive Migration:</strong> Migrate one page at a time</li>
+      <li>⚡ <strong>Better Performance:</strong> Ship only the JavaScript you need</li>
+      <li>🔧 <strong>Easy Integration:</strong> Works alongside existing JSP pages</li>
+      <li>📦 <strong>Smaller Bundles:</strong> Each island is a separate, optimized bundle</li>
+      <li>🎨 <strong>Modern DX:</strong> Use React, TypeScript, and modern tooling</li>
+      <li>♿ <strong>Accessibility:</strong> Core content works without JavaScript</li>
+    </ul>
+  </div>
+
+  <div class="static-content">
+    <h2>Technical Stack</h2>
+    <ul>
+      <li><strong>Build Tool:</strong> Vite 7.x</li>
+      <li><strong>Framework:</strong> React 19.x</li>
+      <li><strong>Language:</strong> TypeScript 5.x</li>
+      <li><strong>Package Manager:</strong> Yarn</li>
+      <li><strong>Architecture:</strong> Multi-Page Application (MPA)</li>
+      <li><strong>Pattern:</strong> Islands Architecture</li>
+    </ul>
+  </div>
+
+  <!-- Island 1: Todo List Component -->
+  <div class="static-content">
+    <h2>Interactive Demo: Todo List Island</h2>
+    <p>Below is an interactive React component demonstrating an island. This component loads its own JavaScript bundle independently.</p>
+  </div>
+  <div id="todo-list-island"></div>
+
+  <div class="static-content">
+    <h2>Project Structure</h2>
+    <pre style="background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto;">
+src/
+├── pages/
+│   ├── home/
+│   │   ├── index.html       # Home page HTML
+│   │   └── main.tsx         # Home page entry point
+│   └── about/
+│       ├── index.html       # About page HTML
+│       └── main.tsx         # About page entry point
+├── islands/
+│   ├── Counter.island.tsx   # Counter island component
+│   ├── UserProfile.island.tsx
+│   └── TodoList.island.tsx
+└── lib/
+    └── hydrate-react.ts     # Hydration utility
+    </pre>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Islands MPA Demo | Built with React + Vite + TypeScript</p>
+  </footer>
+
+  <script type="module" src="./main.tsx"></script>
+</body>
+</html>
